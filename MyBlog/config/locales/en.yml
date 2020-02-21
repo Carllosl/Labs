@@ -1,0 +1,56 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  'Articles': 'Articles'
+  'Films': 'Films'
+  'New Article': 'New Article'
+  'New Film': 'New Film'
+  'Careers': 'Careers'
+  "Name": 'Name'
+  "Director": 'Director'
+  "Year": 'Year'
+  "Actors": 'Actors'
+  "Slogan": 'Slogan'
+  'Add': 'Add'
+  'Save changes': 'Save changes'
+  "Articles about this film": 'Articles about this film'
+  'Edit': 'Edit'
+  'Delete the film': 'Delete the film'
+  "Title": 'Title'
+  "Body": 'Body'
+  "Edit the article": 'Edit the article'
+  "Main page": 'Main page'
+  'Delete': 'Delete'
+  "Films related to the article": "Films related to the article"
+  "Add an article": "Add an article"
+  "Add a film": "Add a film"
+  "Edit the film": "Edit the film"

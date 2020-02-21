@@ -1,0 +1,4 @@
+<h1><%= t('Films') %></h1>
+<% @film.each do |film| %>
+  <p><h3><%= link_to film.name, film_path(film)%></h3></p>
+<%end%>

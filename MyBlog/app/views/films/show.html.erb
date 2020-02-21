@@ -1,0 +1,14 @@
+<h2><%= t("Name") %> :<%= @film.name %></h2><br>
+<p>  <%= t("Year") %> :<%= @film.year %><p>
+<p>  <%= t("Director") %> :<%= @film.director %><p>
+<p>  <%= t("Actors") %> :<%= @film.actors %><p>
+<p>  <%= t("Slogan") %> :<%= @film.discription %></p>
+<hr>
+<h4>  <%= t("Articles about this film") %></h4>
+<% @film.posts.each do |post| %>
+    <p><%= link_to post.title, post_path(post)%></p>
+<% end %>
+<% if current_user.admin %>
+<%= link_to 'Edit', edit_film_path(@film), :class => 'btn btn-primary'%>
+<%= link_to 'Delete the film', film_path(@film), method: :delete, :class => 'btn btn-danger'%>
+<% end %>

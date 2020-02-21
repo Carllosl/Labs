@@ -1,0 +1,22 @@
+<h2><%= t("Edit the film") %></h2>
+<% if current_user.admin %>
+<%= form_for :film, url: film_path(@film), method: :patch do |f|%>
+  <p>
+    <%= t("Name") %><br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %><br><br>
+    <%= t("Director") %><br>
+    <%= f.text_field(:director, {:class => 'form-control'}) %><br><br>
+    <%= t("Year") %><br>
+    <%= f.text_field(:year, {:class => 'form-control'}) %><br><br>
+    <%= t("Actors") %><br>
+    <%= f.text_field(:actors, {:class => 'form-control'}) %><br><br>
+    <%= t("Slogan") %><br>
+    <%= f.text_area(:discription, {:class => 'form-control'}) %><br><br>
+  </p>
+  <p>
+    <%= f.submit(t('Save changes'),{:class => 'btn btn-primary'}) %><br>
+  </p>
+<%end%>
+<% else %>
+<h1>Not so easy</h1>
+<% end %>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyBlog</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal text-primary">
+    <%= link_to 'Cinema blog', root_path, :class => 'text-primary'%>
+    <% if I18n.locale == :ru %>
+      <%= link_to 'en', {locale: :en}, :class => 'btn btn-primary'%>
+    <% end %>
+    <% if I18n.locale == :en %>
+      <%= link_to 'рус', {locale: :ru}, :class => 'btn btn-primary'%>
+    <% end %>
+  </h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <span class="p-2 text-primary"><%= link_to t('Articles'), root_path%></span>
+    <span class="p-2 text-dark"><%= link_to t('Films'), films_path%></span>
+    <% if current_user %>
+    <% if current_user.admin %>
+    <span class="p-2 text-dark"><%= link_to t('New Article'), new_post_path%></span>
+    <% end %>
+    <% if current_user.admin %>
+    <span class="p-2 text-dark"><%= link_to t('New Film'), 'films/new'%></span>
+    <% end %>
+    <% end %>
+    <% if current_user %>
+    <span class="p-2 text-dark"><%= link_to t('Careers'), 'careers'%></span>
+    <% end %>
+  </nav>
+  <% if current_user %>
+  <span class="btn btn-outline-primary" href="#"><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></span>
+  <% else %>
+  <span class="btn btn-outline-primary" href="#"><%= link_to 'Sign in', new_user_session_path%></span>
+  <% end %>
+
+</div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+</html>

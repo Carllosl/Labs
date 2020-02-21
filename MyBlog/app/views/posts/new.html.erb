@@ -1,0 +1,18 @@
+<h1><%= t("Add an article")%></h1>
+<% if current_user.admin %>
+<%= form_for :post, url: posts_path do |f| %>
+<%if @post.errors.any? %>
+  <strong>В названии статьи должно быть больше пяти смволов</strong>
+<%end%>
+<p>
+  <%= t("Title") %><br>
+  <%= f.text_field(:title, {:class => 'form-control'}) %><br><br>
+  <%= t("Body") %><br>
+  <%= f.text_area(:body, {:class => 'form-control'}) %><br>
+  <%= text_field_tag(:val) %> <br/><br/>
+  <%= f.submit('Add',{:class => 'btn btn-primary'}) %><br>
+</p>
+<% end %>
+<% else %>
+<h1>Not so easy</h1>
+<% end %>

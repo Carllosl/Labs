@@ -1,0 +1,11 @@
+<h2><%= @post.title %></h2><br>
+<p><%= @post.body %><p>
+<hr>
+<h4><%= t("Films related to the article") %></h4>
+<% @post.films.each do |film| %>
+  <p><%= link_to film.name, film_path(film)%></p>
+<% end %>
+<% if current_user.admin %>
+<%= link_to t('Edit'), edit_post_path(@post), :class => 'btn btn-primary'%>
+<%= link_to t('Delete'), post_path(@post), method: :delete, :class => 'btn btn-danger'%>
+<% end %>
